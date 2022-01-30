@@ -1,0 +1,21 @@
+html {
+    background-color: #f1f1f1;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.25);
+}
+
+.container {
+    margin-bottom: 2rem;
+}
+
+table {
+    padding: 0 !important;
+    margin-top: -0.5rem;
+}
+
+table * {
+    padding: 0.2rem !important;
+    vertical-align: middle !important;
+}
