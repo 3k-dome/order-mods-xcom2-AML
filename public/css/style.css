@@ -11,11 +11,44 @@ input[type="checkbox"] {
 }
 
 table {
-    padding: 0 !important;
+    padding: 0;
     margin-top: -0.5rem;
 }
 
 table * {
     padding: 0.2rem !important;
     vertical-align: middle !important;
+}
+
+/**
+* moveable stuff; mods and categories have the same
+* parameters right now but are split because i might
+* separate and style them different later ...
+*/
+
+.handle {
+    cursor: move;
+}
+
+tr,
+.columns {
+    transition: border 50ms linear;
+}
+
+.selectedMod {
+    border-left: 0.25rem solid hsl(217, 71%, 53%);
+}
+
+.previewMod {
+    opacity: 0.75;
+    border-left: 0.25rem solid hsl(217, 71%, 53%, 0.75);
+}
+
+.selectedCategory .columns {
+    border-left: 0.25rem solid hsl(217, 71%, 53%);
+}
+
+.previewCategory .columns {
+    opacity: 0.75;
+    border-left: 0.25rem solid hsla(217, 71%, 53%, 0.75);
 }
