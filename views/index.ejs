@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="js/categoryButtons.js"></script>
 </head>
 
 <body>
@@ -84,9 +86,8 @@
                     <table class="table is-striped is-fullwidth">
                         <thead>
                             <th width="5%" class="has-text-centered"></th>
-                            <th width="5%">Index</th>
                             <th width="50%">Name</th>
-                            <th width="35%">Author</th>
+                            <th width="40%">Author</th>
                             <th width="5%" class="has-text-centered">Active</th>
                         </thead>
                         <!-- Mods -->
@@ -95,66 +96,200 @@
                                 <td class="has-text-centered">
                                     <i class="material-icons">drag_handle</i>
                                 </td>
-                                <td>*Index</td>
                                 <td>*Name</td>
                                 <td>*Author</td>
                                 <td class="has-text-centered">
-                                    <input type="checkbox" class="is-large">
+                                    <input type="checkbox">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="has-text-centered">
                                     <i class="material-icons">drag_handle</i>
                                 </td>
-                                <td>*Index</td>
                                 <td>*Name</td>
                                 <td>*Author</td>
                                 <td class="has-text-centered">
-                                    <input type="checkbox" class="is-large">
+                                    <input type="checkbox">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="has-text-centered">
                                     <i class="material-icons">drag_handle</i>
                                 </td>
-                                <td>*Index</td>
                                 <td>*Name</td>
                                 <td>*Author</td>
                                 <td class="has-text-centered">
-                                    <input type="checkbox" class="is-large">
+                                    <input type="checkbox">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Category Container -->
+        <div class="container is-fullhd">
+            <div class="columns is-vcentered is-multiline has-background-white">
+                <!-- Category Controls -->
+                <div class="column is-narrow">
+                    <div class="buttons">
+                        <!-- Handle -->
+                        <button class="button is-link is-light">
+                            <span class="icon">
+                                <i class="material-icons is-size-4">drag_indicator</i>
+                            </span>
+                        </button>
+                        <!-- Visibility -->
+                        <button class="button is-link is-light" id="toggleVisibility">
+                            <span class="icon">
+                                <i class="material-icons is-size-4">visibility</i>
+                            </span>
+                        </button>
+                        <!-- Toggle Category -->
+                        <button class="button is-link is-light" id="toggleCategory">
+                            <span class="icon">
+                                <i class="material-icons is-size-4">check_box_outline_blank</i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Category Title -->
+                <div class="column">
+                    <p class="subtitle">
+                        Category 2
+                    </p>
+                </div>
+                <!-- Category Entries -->
+                <div class="column is-12">
+                    <table class="table is-striped is-fullwidth">
+                        <thead>
+                            <th width="5%" class="has-text-centered"></th>
+                            <th width="50%">Name</th>
+                            <th width="40%">Author</th>
+                            <th width="5%" class="has-text-centered">Active</th>
+                        </thead>
+                        <!-- Mods -->
+                        <tbody>
+                            <tr>
+                                <td class="has-text-centered">
+                                    <i class="material-icons">drag_handle</i>
+                                </td>
+                                <td>*Name</td>
+                                <td>*Author</td>
+                                <td class="has-text-centered">
+                                    <input type="checkbox">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="has-text-centered">
                                     <i class="material-icons">drag_handle</i>
                                 </td>
-                                <td>*Index</td>
                                 <td>*Name</td>
                                 <td>*Author</td>
                                 <td class="has-text-centered">
-                                    <input type="checkbox" class="is-large">
+                                    <input type="checkbox">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="has-text-centered">
                                     <i class="material-icons">drag_handle</i>
                                 </td>
-                                <td>*Index</td>
                                 <td>*Name</td>
                                 <td>*Author</td>
                                 <td class="has-text-centered">
-                                    <input type="checkbox" class="is-large">
+                                    <input type="checkbox">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="has-text-centered">
                                     <i class="material-icons">drag_handle</i>
                                 </td>
-                                <td>*Index</td>
                                 <td>*Name</td>
                                 <td>*Author</td>
                                 <td class="has-text-centered">
-                                    <input type="checkbox" class="is-large">
+                                    <input type="checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="has-text-centered">
+                                    <i class="material-icons">drag_handle</i>
+                                </td>
+                                <td>*Name</td>
+                                <td>*Author</td>
+                                <td class="has-text-centered">
+                                    <input type="checkbox">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Category Container -->
+        <div class="container is-fullhd">
+            <div class="columns is-vcentered is-multiline has-background-white">
+                <!-- Category Controls -->
+                <div class="column is-narrow">
+                    <div class="buttons">
+                        <!-- Handle -->
+                        <button class="button is-link is-light">
+                            <span class="icon">
+                                <i class="material-icons is-size-4">drag_indicator</i>
+                            </span>
+                        </button>
+                        <!-- Visibility -->
+                        <button class="button is-link is-light" id="toggleVisibility">
+                            <span class="icon">
+                                <i class="material-icons is-size-4">visibility</i>
+                            </span>
+                        </button>
+                        <!-- Toggle Category -->
+                        <button class="button is-link is-light" id="toggleCategory">
+                            <span class="icon">
+                                <i class="material-icons is-size-4">check_box_outline_blank</i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Category Title -->
+                <div class="column">
+                    <p class="subtitle">
+                        Category 3
+                    </p>
+                </div>
+                <!-- Category Entries -->
+                <div class="column is-12">
+                    <table class="table is-striped is-fullwidth">
+                        <thead>
+                            <th width="5%" class="has-text-centered"></th>
+                            <th width="50%">Name</th>
+                            <th width="40%">Author</th>
+                            <th width="5%" class="has-text-centered">Active</th>
+                        </thead>
+                        <!-- Mods -->
+                        <tbody>
+                            <tr>
+                                <td class="has-text-centered">
+                                    <i class="material-icons">drag_handle</i>
+                                </td>
+                                <td>*Name</td>
+                                <td>*Author</td>
+                                <td class="has-text-centered">
+                                    <input type="checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="has-text-centered">
+                                    <i class="material-icons">drag_handle</i>
+                                </td>
+                                <td>*Name</td>
+                                <td>*Author</td>
+                                <td class="has-text-centered">
+                                    <input type="checkbox">
                                 </td>
                             </tr>
                         </tbody>
