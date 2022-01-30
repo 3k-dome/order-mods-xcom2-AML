@@ -1,8 +1,12 @@
-let express = require("express");
+import express from "express";
+
+import { readSettingsJSON } from "../scripts/readSettings.js";
+
 let router = express.Router();
 
 router.get("/", function (req, res) {
-    res.status(200).render("index");
+    console.log(readSettingsJSON())
+    res.status(200).render("index", {});
 });
 
-module.exports = router;
+export default router;

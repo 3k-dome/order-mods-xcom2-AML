@@ -2,6 +2,7 @@
   "name": "mod-manager",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start:dev": "start http://localhost:3000 && nodemon index.js"
