@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XCOM Mod Organizer</title>
+    <title>XCOM AML Mod Organizer</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/style.css">
@@ -29,10 +29,10 @@
                 <!-- Title -->
                 <div class="column is-half">
                     <p class="title">
-                        XCOM 2 Mod Manager
+                        XCOM AML Mod Organizer
                     </p>
                     <p class="subtitle">
-                        A mod organization tool
+                        Sort Mods per drag & drop
                     </p>
                 </div>
                 <!-- Buttons -->
@@ -96,7 +96,7 @@
                                     <% entries[category].Entries.forEach(modDict => { %>
                                     <% counter += modDict.isActive %>
                                     <% }) %>
-                                    <% if (entries[category].Entries.length == counter) { %>
+                                    <% if (entries[category].Entries.length == counter && counter != 0) { %>
                                     check_box
                                     <% } else { %>
                                     check_box_outline_blank
