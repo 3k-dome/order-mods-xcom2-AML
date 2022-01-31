@@ -1,7 +1,8 @@
 /**
  * turns an array of mod or category names into
  * a dict which maps the name against the index
- * to make reordering linear
+ * to make reordering linear;
+ * [a, b] -> {a: 0, b: 1}
  */
 function flatArrayToIndexMap(array) {
     let dict = {};
@@ -13,7 +14,8 @@ function flatArrayToIndexMap(array) {
 
 /**
  * gets a dict of all category names mapped against
- * their current index in the ui
+ * their current index in the ui;
+ * -> {*categoryName: *categoryIndex}
  */
 function getCategoryOrder() {
     let categoryOrder = Array.from(document.querySelectorAll("#categoryName"));
@@ -24,33 +26,40 @@ function getCategoryOrder() {
 }
 
 /**
- * gets a dict of all mod names mapped against
- * their current index in the ui and dict of
- * all mod names mapped against their category
+ * gets a dict of all mods mapped against a nested
+ * dict containing necessary information to reassign
+ * each mod (active, index, category) for each mod;
+ * -> {*modName: {Index: *index, Category: *category, Active: *active}}
  */
 function getModOrderAndCategoryMap() {
     let modOrder = Array.from(document.querySelectorAll("#modName"));
-    let modCategoryMap = {};
+    let modMap = {};
     for (let i = 0; i < modOrder.length; i++) {
-        let category = modOrder[i]
+        let mod = {};
+        mod["Index"] = i;
+        mod["Category"] = modOrder[i]
             .closest(".columns")
             .querySelector("#categoryName").innerText;
-        modOrder[i] = modOrder[i].innerText;
-        modCategoryMap[modOrder[i]] = category;
+        mod["Active"] = modOrder[i]
+            .closest(".columns")
+            .querySelector("#modActive").checked;
+        modMap[modOrder[i].innerText] = mod;
     }
-    return { modIndexMap: flatArrayToIndexMap(modOrder), modCategoryMap };
+    return { modMap };
 }
 
 async function syncOrder() {
     let { categoryIndexMap } = getCategoryOrder();
-    let { modIndexMap, modCategoryMap } = getModOrderAndCategoryMap();
+    let { modMap } = getModOrderAndCategoryMap();
     await fetch("/sync", {
         method: "POST",
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ categoryIndexMap, modIndexMap, modCategoryMap }),
+        body: JSON.stringify({ categoryIndexMap, modMap }),
     });
-    location.reload();
+    // location.reload();
 }
+
+console.log(syncOrder());
