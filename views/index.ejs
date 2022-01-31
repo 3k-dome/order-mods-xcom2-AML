@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script defer src="js/toggleCategoryToggles.js"></script>
     <script defer src="js/draggableCategories.js"></script>
     <script defer src="js/categoryButtons.js"></script>
-    <script defer src="js/sendOrder.js"></script>
+    <script defer src="js/heroButtons.js"></script>
 
 </head>
 
@@ -78,13 +79,29 @@
                         <!-- Visibility -->
                         <button class="button is-link is-light" id="toggleVisibility">
                             <span class="icon">
-                                <i class="material-icons is-size-4">visibility</i>
+                                <i class="material-icons is-size-4">
+                                    <% if (entries[category].Collapsed) { %>
+                                    visibility_off
+                                    <% } else { %>
+                                    visibility
+                                    <% } %>
+                                </i>
                             </span>
                         </button>
                         <!-- Toggle Category -->
                         <button class="button is-link is-light" id="toggleCategory">
                             <span class="icon">
-                                <i class="material-icons is-size-4">check_box_outline_blank</i>
+                                <i class="material-icons is-size-4">
+                                    <% let counter = 0 %>
+                                    <% entries[category].Entries.forEach(modDict => { %>
+                                    <% counter += modDict.isActive %>
+                                    <% }) %>
+                                    <% if (entries[category].Entries.length == counter) { %>
+                                    check_box
+                                    <% } else { %>
+                                    check_box_outline_blank
+                                    <% } %>
+                                </i>
                             </span>
                         </button>
                         <!-- Delete Category -->
@@ -102,7 +119,7 @@
                     <p class="subtitle has-text-weight-medium has-text-black" id="categoryName"><%= category %></p>
                 </div>
                 <!-- Category Entries -->
-                <div class="column is-12">
+                <div class="column is-12" <%= entries[category].Collapsed ? "style=display:none;" : "" %>>
                     <table class="table is-striped is-fullwidth">
                         <thead>
                             <th width="5%" class="has-text-centered"></th>

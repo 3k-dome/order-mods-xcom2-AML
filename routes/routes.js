@@ -15,7 +15,7 @@ router.get("/", function (req, res) {
 });
 
 router.post("/sync", function (req, res) {
-    reorderSettings(req.body.categoryIndexMap, req.body.modMap);
+    reorderSettings(req.body.categoryMap, req.body.modMap);
     res.status(200).send();
 });
 

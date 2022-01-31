@@ -1,28 +1,26 @@
 /**
- * turns an array of mod or category names into
- * a dict which maps the name against the index
- * to make reordering linear;
- * [a, b] -> {a: 0, b: 1}
+ * analog to getModMap
  */
-function flatArrayToIndexMap(array) {
-    let dict = {};
-    array.forEach((element, index) => {
-        dict[element] = index;
-    });
-    return dict;
-}
-
-/**
- * gets a dict of all category names mapped against
- * their current index in the ui;
- * -> {*categoryName: *categoryIndex}
- */
-function getCategoryOrder() {
+function getCategoryMap() {
     let categoryOrder = Array.from(document.querySelectorAll("#categoryName"));
+    let categoryMap = {};
     for (let i = 0; i < categoryOrder.length; i++) {
-        categoryOrder[i] = categoryOrder[i].innerText;
+        let category = {};
+        let visibilityText = categoryOrder[i]
+            .closest(".columns")
+            .querySelector("#toggleVisibility i").innerText;
+        switch (visibilityText) {
+            case "visibility_off":
+                category["Collapsed"] = true;
+                break;
+            default:
+                category["Collapsed"] = false;
+                break;
+        }
+        category["Index"] = i;
+        categoryMap[categoryOrder[i].innerText] = category;
     }
-    return { categoryIndexMap: flatArrayToIndexMap(categoryOrder) };
+    return { categoryMap };
 }
 
 /**
@@ -31,7 +29,7 @@ function getCategoryOrder() {
  * each mod (active, index, category) for each mod;
  * -> {*modID: {Index: *index, Category: *category, isActive: *active}}
  */
-function getModOrderAndCategoryMap() {
+function getModMap() {
     let modOrder = Array.from(document.querySelectorAll("#modID"));
     let modMap = {};
     for (let i = 0; i < modOrder.length; i++) {
@@ -49,15 +47,15 @@ function getModOrderAndCategoryMap() {
 }
 
 async function syncOrder() {
-    let { categoryIndexMap } = getCategoryOrder();
-    let { modMap } = getModOrderAndCategoryMap();
+    let { categoryMap } = getCategoryMap();
+    let { modMap } = getModMap();
     await fetch("/sync", {
         method: "POST",
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ categoryIndexMap, modMap }),
+        body: JSON.stringify({ categoryMap, modMap }),
     });
 }
 

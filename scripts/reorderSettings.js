@@ -1,7 +1,7 @@
 import { readSettingsJSON } from "../scripts/readSettings.js";
 import { writeSettingsJSON } from "./writeSettings.js";
 
-export function reorderSettings(categoryIndexMap, modMap) {
+export function reorderSettings(categoryMap, modMap) {
     let settingsJSON = readSettingsJSON();
     /**
      * move all mods from the settings.json into a array
@@ -16,7 +16,8 @@ export function reorderSettings(categoryIndexMap, modMap) {
             modDictArray.push(modDict);
         });
         settingsJSON.Mods.Entries[key].Entries = [];
-        settingsJSON.Mods.Entries[key].Index = categoryIndexMap[key];
+        settingsJSON.Mods.Entries[key].Index = categoryMap[key].Index;
+        settingsJSON.Mods.Entries[key].Collapsed = categoryMap[key].Collapsed;
     }
     /**
      * reassign each mod to its category using the modMap
