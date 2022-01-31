@@ -11,6 +11,13 @@ function getCategoriesInOrder(entries) {
 export function readSettingsJSON() {
     let settingsJSON = fs.readFileSync("AML/settings.json");
     settingsJSON = JSON.parse(settingsJSON);
+    return settingsJSON;
+}
+
+// gets the category dict/array from the settings.json
+export function readMinSettingsJSON() {
+    let settingsJSON = fs.readFileSync("AML/settings.json");
+    settingsJSON = JSON.parse(settingsJSON);
     let entries = settingsJSON.Mods.Entries;
-    return {"entries": entries, "categories": getCategoriesInOrder(entries)};
+    return { entries: entries, categories: getCategoriesInOrder(entries) };
 }
