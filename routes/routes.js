@@ -9,4 +9,8 @@ router.get("/", function (req, res) {
     res.status(200).render("index", {entries, categories});
 });
 
+router.post("/sync", function (req, res) {
+    res.status(200).send()
+});
+
 export default router;

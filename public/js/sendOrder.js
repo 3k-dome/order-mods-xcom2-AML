@@ -41,7 +41,16 @@ function getModOrderAndCategoryMap() {
     return { modIndexMap: flatArrayToIndexMap(modOrder), modCategoryMap };
 }
 
-function sendOrder() {
+async function syncOrder() {
     let { categoryIndexMap } = getCategoryOrder();
     let { modIndexMap, modCategoryMap } = getModOrderAndCategoryMap();
+    await fetch("/sync", {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ categoryIndexMap, modIndexMap, modCategoryMap }),
+    });
+    location.reload();
 }
