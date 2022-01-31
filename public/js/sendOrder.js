@@ -29,7 +29,7 @@ function getCategoryOrder() {
  * gets a dict of all mods mapped against a nested
  * dict containing necessary information to reassign
  * each mod (active, index, category) for each mod;
- * -> {*modName: {Index: *index, Category: *category, Active: *active}}
+ * -> {*modName: {Index: *index, Category: *category, isActive: *active}}
  */
 function getModOrderAndCategoryMap() {
     let modOrder = Array.from(document.querySelectorAll("#modName"));
@@ -40,8 +40,8 @@ function getModOrderAndCategoryMap() {
         mod["Category"] = modOrder[i]
             .closest(".columns")
             .querySelector("#categoryName").innerText;
-        mod["Active"] = modOrder[i]
-            .closest(".columns")
+        mod["isActive"] = modOrder[i]
+            .closest("tr")
             .querySelector("#modActive").checked;
         modMap[modOrder[i].innerText] = mod;
     }

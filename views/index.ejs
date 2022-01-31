@@ -106,7 +106,11 @@
                                 <td id="modName"><%= mod.Name %></td>
                                 <td id="modAuthor"><%= mod.Author %></td>
                                 <td class="has-text-centered">
+                                    <% if (mod.isActive) { %>
+                                    <input id="modActive" type="checkbox" checked>
+                                    <% } else { %>
                                     <input id="modActive" type="checkbox">
+                                    <% }  %>
                                 </td>
                             </tr>
                             <% }) %>
