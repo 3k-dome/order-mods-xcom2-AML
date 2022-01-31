@@ -1,6 +1,9 @@
 # order-mods-xcom2-AML
 Webapp to organize mods within the ALM for XCOM.
 
+# Readme stuff
+comming soon...
 
-https://user-images.githubusercontent.com/77629956/151789885-9a425a0d-00f9-4448-be5f-697e406d1fb1.mp4
+# Simple demo:
 
+https://user-images.githubusercontent.com/77629956/151856389-8d16c884-22d3-4ce8-809a-6a70efc89c36.mp4
