@@ -59,7 +59,5 @@ async function syncOrder() {
         },
         body: JSON.stringify({ categoryIndexMap, modMap }),
     });
-    // location.reload();
+    location.reload();
 }
-
-console.log(syncOrder());
