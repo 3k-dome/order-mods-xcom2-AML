@@ -79,7 +79,13 @@
                         <!-- Visibility -->
                         <button class="button is-link is-light" id="toggleVisibility">
                             <span class="icon">
-                                <i class="material-icons is-size-4">visibility</i>
+                                <i class="material-icons is-size-4">
+                                    <% if (entries[category].Collapsed) { %>
+                                    visibility_off
+                                    <% } else { %>
+                                    visibility
+                                    <% } %>
+                                </i>
                             </span>
                         </button>
                         <!-- Toggle Category -->
@@ -103,7 +109,7 @@
                     <p class="subtitle has-text-weight-medium has-text-black" id="categoryName"><%= category %></p>
                 </div>
                 <!-- Category Entries -->
-                <div class="column is-12">
+                <div class="column is-12" <%= entries[category].Collapsed ? "style=display:none;" : "" %>>
                     <table class="table is-striped is-fullwidth">
                         <thead>
                             <th width="5%" class="has-text-centered"></th>
