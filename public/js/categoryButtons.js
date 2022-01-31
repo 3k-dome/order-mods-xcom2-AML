@@ -49,3 +49,23 @@ toggleCategories.forEach((toggle) => {
         }
     });
 });
+
+let deleteCategories = document.querySelectorAll("#deleteCategory");
+
+deleteCategories.forEach((button) => {
+    button.addEventListener("click", async () => {
+        await syncOrder();
+        let categoryName = button
+            .closest(".columns")
+            .querySelector(".subtitle").innerText;
+        await fetch("/del", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ categoryName }),
+        });
+        location.reload();
+    });
+});
