@@ -23,13 +23,24 @@ export function reorderSettings(categoryMap, modMap) {
      * reassign each mod to its category using the modMap
      * and change passed values (index, active)
      */
-    modDictArray.forEach((modDict) => {
+    modDictArray.forEach((modDict, i) => {
+        /**
+         * #14: we only changed the index of the mods and their
+         * category sofar not their actual position, for now 
+         * only update the dict with new values, sort it afterwards
+         * and then insert it back, not the fanciest solution but simple
+         */
         modDict.Index = modMap[modDict.ID].Index;
         modDict.isActive = modMap[modDict.ID].isActive;
+        modDictArray[i] = modDict
+    });
+    // #14: sort & reinsert
+    modDictArray.sort((a, b) => {return a.Index - b.Index})
+    modDictArray.forEach((modDict) => {
         settingsJSON.Mods.Entries[modMap[modDict.ID].Category].Entries.push(
             modDict
         );
-    });
+    })
     writeSettingsJSON(settingsJSON);
 }
 
