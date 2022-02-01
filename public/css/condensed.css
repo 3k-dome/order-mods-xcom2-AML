@@ -1,0 +1,39 @@
+.section {
+    margin-top: -1rem;
+}
+
+.section .buttons {
+    transform: scale(0.9);
+    margin-right: -5rem;
+    margin-left: -0.5rem;
+}
+
+.section .subtitle {
+    transform: scale(0.9);
+}
+
+input[type="checkbox"] {
+    transform: scale(1);
+}
+
+.container {
+    margin-bottom: 1rem;
+}
+
+table {
+    padding: 0;
+    margin-top: -1.5rem;
+}
+
+table thead th {
+    font-size: 0;
+}
+
+table tbody * {
+    font-size: small;
+    padding: 0 !important;
+}
+
+table tbody i {
+    transform: scale(0.9);
+}

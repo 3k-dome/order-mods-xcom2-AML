@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/condensed.css" title="condensedStyle">
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <script defer src="js/toggleCategoryToggles.js"></script>
     <script defer src="js/draggableCategories.js"></script>
     <script defer src="js/categoryButtons.js"></script>
     <script defer src="js/heroButtons.js"></script>
+    <script defer src="js/style.js"></script>
+
 
 </head>
 
@@ -55,6 +58,16 @@
                                 <i class="material-icons">launch</i>
                             </span>
                             <span>Launch</span>
+                        </button>
+                        <button class="button is-link is-light" onclick="condensedStyleClick(this)">
+                            <span class="icon">
+                                <i class="material-icons">density_large</i>
+                            </span>
+                        </button>
+                        <button class="button is-link is-light">
+                            <span class="icon">
+                                <i class="material-icons">light_mode</i>
+                            </span>
                         </button>
                     </p>
                 </div>
