@@ -77,6 +77,9 @@ async function addCategory() {
 }
 
 async function addCategoryClick() {
+    // #12: this is the reason i separated the 
+    // actual function from the button click
+    await syncOrder();
     await addCategory();
     location.reload();
 }
